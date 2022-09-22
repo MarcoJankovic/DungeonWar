@@ -134,7 +134,25 @@ namespace DungeonWar
                         switch (answer = Console.ReadLine())
                         {
                             case "1":
-                                Console.WriteLine("\tTest");
+                                Console.Clear();
+                                Console.Write("\n\n\tAre you sure you want to fight Y/N? ");
+                                answer = Console.ReadLine();
+
+                                if (answer == "Y" || answer == "y")
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("\n\tPrepare to fight!");
+
+                                }
+                                else if (answer == "N" || answer == "n")
+                                {
+                                    Console.WriteLine("You run away!");
+                                }
+
+                                break;
+
+                            case "2":
+                                GenerateCreatureProperies();
                                 break;
                         }
                         break;
@@ -224,7 +242,24 @@ namespace DungeonWar
                         switch (answer = Console.ReadLine())
                         {
                             case "1":
-                                Console.WriteLine("\tTest");
+                                Console.Clear();
+                                Console.Write("\n\n\tAre you sure you want to fight Y/N? ");
+                                answer = Console.ReadLine();
+
+                                if (answer == "Y" || answer == "y")
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("\n\tPrepare to fight!");
+
+                                }
+                                else if (answer == "N" || answer == "n")
+                                {
+                                    Console.WriteLine("You run away!");
+                                }
+                                break;
+
+                            case "2":
+                                GenerateCreatureProperies();
                                 break;
                         }
                         break;
@@ -335,10 +370,23 @@ namespace DungeonWar
                 string randomCreature = CreatureList[random.Next(0, CreatureList.Count)];
 
                 Console.WriteLine($"\n\tA {randomCreature} approaches from the shadows\n");
-               
+            }
+
+            static void GenerateCreatureProperies()
+            {
+                List<Creaturelist.CreatureTroll> CreatureProperties = new List<Creaturelist.CreatureTroll>();
+
+                Creaturelist.CreatureTroll troll1 = new Creaturelist.CreatureTroll(1, 20, 10);
+                //Creaturelist.CreatureTroll troll2 = new Creaturelist.CreatureTroll(2, 25, 15);
+                //Creaturelist.CreatureTroll troll3 = new Creaturelist.CreatureTroll(3, 30, 20);
+                //Creaturelist.CreatureTroll troll4 = new Creaturelist.CreatureTroll(4, 35, 25);
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"\n\n\tThe creature you are fighting is Currently : \n\tLevel: {troll1.level} \n\tHealth: {troll1.health} \n\tEnergy: {troll1.energy}");
+                Console.WriteLine("\n\tpress 1: to fight \n\tpress 2: to run:");
+                Console.ReadLine();
+
             }
         }
-
     }
-
 }
