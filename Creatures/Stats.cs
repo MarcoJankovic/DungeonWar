@@ -14,6 +14,8 @@ namespace DungeonWar.Creatures
         private int health;
         private int mana;
         private int damage;
+        private string? strength;
+        private int gold;
 
         public int Level
         {
@@ -50,6 +52,18 @@ namespace DungeonWar.Creatures
         {
             get { return damage; }
             set { damage = value; }
+        }
+
+        public string? Strength
+        {
+            get { return strength; }
+            set { strength = value; }
+        }
+
+        public int Gold
+        {
+            get { return gold; }
+            set { gold = value; }
         }
 
     }
