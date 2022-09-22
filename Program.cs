@@ -128,9 +128,15 @@ namespace DungeonWar
                         Walking();
                         Console.Clear();
                         Console.WriteLine("\n\tYou sence danger!!\n\n");
-                        Console.WriteLine("\n\tA Troll approaches from the shadows\n");                    // Create random creature
+                        GenerateRandomCreature();  // Create random creature
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("\n\tPress 1: Fight\n\tPress 2: Inspect\t\n\tPress 3: run\n\t");
+                        switch (answer = Console.ReadLine())
+                        {
+                            case "1":
+                                Console.WriteLine("\tTest");
+                                break;
+                        }
                         break;
 
                     case "2":
@@ -157,7 +163,7 @@ namespace DungeonWar
                 cyborg.Energy = 10;
                 cyborg.Damage = 5;
                 cyborg.Gold = 0;
-                string? answer;               
+                string? answer;
 
                 Console.Write("\n\tWhat is your name cyborg? : ");
                 cyborg.Name = Console.ReadLine();
@@ -212,15 +218,15 @@ namespace DungeonWar
                         Walking();
                         Console.Clear();
                         Console.WriteLine("\n\tYou sence danger!!\n\n");
-                        Console.WriteLine("\n\tA Troll approaches from the shadows\n");  // Create random creature
+                        GenerateRandomCreature(); // Create random creature
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.Write("\n\tPress 1: Fight\n\tPress 2: Inspect\t\n\tPress 3: run\n\t");                      
-                        switch(answer = Console.ReadLine())
+                        Console.Write("\n\tPress 1: Fight\n\tPress 2: Inspect\t\n\tPress 3: run\n\t");
+                        switch (answer = Console.ReadLine())
                         {
                             case "1":
                                 Console.WriteLine("\tTest");
                                 break;
-                        }                       
+                        }
                         break;
 
                     case "2":
@@ -311,16 +317,28 @@ namespace DungeonWar
                         Console.WriteLine(legs2.PadLeft(offset, ' ') + "");
                     }
                     legsShouldPrint = !legsShouldPrint;
-                    Thread.Sleep(20);
+                    Thread.Sleep(40);
                 }
             }
 
+
             static void GenerateRandomCreature()
             {
+                Random random = new Random();
 
+                List<string> CreatureList = new List<string>
+                {
+                "Troll", "Scarab", "Wasp", "Dragon", "Balrog", "Witch", "Shaman", "Lizzard", "Demon", "Ghost",
+                "Fire-Element", "Bio-Element", "Giant", "Pirate", "Goblin", "Gnome", "Orc", "Sorcerer", "Cultist"
+                };
 
+                string randomCreature = CreatureList[random.Next(0, CreatureList.Count)];
+
+                Console.WriteLine($"\n\tA {randomCreature} approaches from the shadows\n");
+               
             }
         }
 
     }
+
 }
