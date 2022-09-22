@@ -61,6 +61,7 @@ namespace DungeonWar
                 banshee.Level = 1;
                 banshee.Health = 25;
                 banshee.Mana = 10;
+                banshee.Damage = 5;
                 string? answer;
 
                 Console.Write("\n\tWhat is your name banshee? : ");
@@ -68,30 +69,54 @@ namespace DungeonWar
 
                 Console.Write("\n\tPick you magic");
 
-                Console.Write("\n\n\t1: for Fire or 2: for Air: ");
-                switch (answer = Console.ReadLine().ToLower())
+                Console.Write("\n\n\t1: for Fire \n\t2: for Air \n\t ");
+                switch (answer = Console.ReadLine())
                 {
                     case "1":
+                        Console.Clear();
                         banshee.Magic = "Fire";
                         break;
 
                     case "2":
+                        Console.Clear();
                         banshee.Magic = "Air";
                         break;
 
-                    default:
+                    default:                        
                         break;
                 }
                 
-                Console.ForegroundColor = ConsoleColor.Red;            
+                Console.ForegroundColor = ConsoleColor.Green;            
 
                 Console.WriteLine("\n\tWelcome to Dungeon Wars: " + banshee.Name);
                 Console.Write("\n\tCurrent Level is: " + banshee.Level);
                 Console.Write("\n\tCurrent Health is: " + banshee.Health);
                 Console.Write("\n\tCurrent Mana is: " + banshee.Mana);
+                Console.Write("\n\tCurrent Damage is: " + banshee.Damage);
                 Console.Write("\n\tCurrent Magic is: " + banshee.Magic);
-            }
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("\n\n\tTo level up your creature you have to enter the arena!");
 
+
+                switch (answer = Console.ReadLine())
+                {
+                    case "1":
+                        Console.WriteLine("Enter Arena");
+                        break;
+
+                    case "2":
+                        Console.WriteLine("Enter Market");
+                        break;
+
+                    case "3":
+                        Console.WriteLine("Enter Rest Area");
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            
             static void Cyborg()
             {
                 Console.Clear();
