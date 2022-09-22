@@ -11,6 +11,7 @@ namespace DungeonWar.Creatures
         private int level;
         private string? name;
         private string? magic;
+        private int energy;
         private int health;
         private int mana;
         private int damage;
@@ -35,6 +36,11 @@ namespace DungeonWar.Creatures
             set { magic = value; }
         }
 
+        public int Energy
+        {
+            get { return energy; }
+            set { energy = value; }
+        }
 
         public int Health
         {

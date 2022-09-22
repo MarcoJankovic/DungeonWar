@@ -15,7 +15,6 @@ namespace DungeonWar
         {
             int run;
 
-
             Menu();
 
             switch (run = Convert.ToInt32(Console.ReadLine()))
@@ -63,6 +62,7 @@ namespace DungeonWar
                 banshee.Health = 25;
                 banshee.Mana = 10;
                 banshee.Damage = 5;
+                banshee.Gold = 0;
                 string? answer;
 
                 Console.Write("\n\tWhat is your name banshee? : ");
@@ -111,8 +111,10 @@ namespace DungeonWar
                 Console.Write("\n\tCurrent Mana is: " + banshee.Mana);
                 Console.Write("\n\tCurrent Damage is: " + banshee.Damage);
                 Console.Write("\n\tCurrent Magic is: " + banshee.Magic);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\n\n\tYour Wealth is: " + banshee.Gold + " Gold");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("\n\n\tTo level up your creature you have to enter the Dungeon!");
+                Console.Write("\n\n\tTo level up your creature, you have to enter the Dungeon!");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("\n\n\tPress 1: To enter Dungeon \n\tPress 2: To enter Market \n\tPress 3: To enter Rest-Area\n\t");
 
@@ -121,7 +123,14 @@ namespace DungeonWar
                 {
                     case "1":
                         Console.Clear();
-                        Console.WriteLine("\tEntering Dungeon");
+                        Console.WriteLine("\tEntering Dungeon\n\n");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Walking();
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou sence danger!!\n\n");
+                        Console.WriteLine("\n\tA Troll approaches from the shadows\n");                    // Create random creature
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("\n\tPress 1: Fight\n\tPress 2: Inspect\t\n\tPress 3: run\n\t");
                         break;
 
                     case "2":
@@ -138,16 +147,17 @@ namespace DungeonWar
                         break;
                 }
             }
-
+            /// ----------------------------------------------------------------------------------------------------///
             static void Cyborg()
             {
                 Console.Clear();
                 Cyborg cyborg = new Cyborg();
                 cyborg.Level = 1;
                 cyborg.Health = 25;
-                cyborg.Mana = 10;
+                cyborg.Energy = 10;
                 cyborg.Damage = 5;
-                string? answer;
+                cyborg.Gold = 0;
+                string? answer;               
 
                 Console.Write("\n\tWhat is your name cyborg? : ");
                 cyborg.Name = Console.ReadLine();
@@ -161,8 +171,6 @@ namespace DungeonWar
                     case "1":
                         Console.Clear();
                         cyborg.Strength = "Brute";
-                        Walking();
-                        DungeonCave();
                         break;
 
                     case "2":
@@ -184,11 +192,13 @@ namespace DungeonWar
                 Console.WriteLine("\n\tWelcome to Dungeon Wars: " + cyborg.Name);
                 Console.Write("\n\tCurrent Level is: " + cyborg.Level);
                 Console.Write("\n\tCurrent Health is: " + cyborg.Health);
-                Console.Write("\n\tCurrent Mana is: " + cyborg.Mana);
+                Console.Write("\n\tCurrent Energy is: " + cyborg.Energy);
                 Console.Write("\n\tCurrent Damage is: " + cyborg.Damage);
                 Console.Write("\n\tCurrent Class is: " + cyborg.Strength);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("\n\n\tYour Wealth is: " + cyborg.Gold + " Gold");
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("\n\n\tTo level up your creature you have to enter the Dungeon!");
+                Console.Write("\n\n\tTo level up your creature, you have to enter the Dungeon!");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("\n\n\tPress 1: To enter Dungeon \n\tPress 2: To enter Market \n\tPress 3: To enter Rest-Area\n\t");
 
@@ -200,16 +210,23 @@ namespace DungeonWar
                         Console.WriteLine("\tEntering Dungeon\n\n");
                         Console.ForegroundColor = ConsoleColor.Red;
                         Walking();
-                        DungeonCave();
-                        Console.WriteLine("\tYou sence danger!!\n\n");
-                        Console.WriteLine("\tA troll approaches in the shadow\n");
-                        Console.Write("\tFight?\n\tInspect?\t\n\trun?\n");
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou sence danger!!\n\n");
+                        Console.WriteLine("\n\tA Troll approaches from the shadows\n");  // Create random creature
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.Write("\n\tPress 1: Fight\n\tPress 2: Inspect\t\n\tPress 3: run\n\t");                      
+                        switch(answer = Console.ReadLine())
+                        {
+                            case "1":
+                                Console.WriteLine("\tTest");
+                                break;
+                        }                       
                         break;
 
                     case "2":
                         Console.Clear();
                         Console.WriteLine("\tEntering Market");
-                       
+
                         break;
 
                     case "3":
@@ -278,28 +295,29 @@ namespace DungeonWar
                 bool legsShouldPrint = true;
                 Console.WriteLine(head1);
                 Console.WriteLine(body1);
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     Console.Clear();
                     int offset = i + 3;
-                    Console.WriteLine(head1.PadLeft(offset, ' '));
-                    Console.WriteLine(body1.PadLeft(offset, ' '));
+                    Console.WriteLine("\n\n");
+                    Console.WriteLine(head1.PadLeft(offset, ' ') + "");
+                    Console.WriteLine(body1.PadLeft(offset, ' ') + "\t-->");
                     if (legsShouldPrint)
                     {
                         Console.WriteLine(legs1.PadLeft(offset, ' '));
                     }
                     else
                     {
-                        Console.WriteLine(legs2.PadLeft(offset, ' '));
+                        Console.WriteLine(legs2.PadLeft(offset, ' ') + "");
                     }
                     legsShouldPrint = !legsShouldPrint;
-                    Thread.Sleep(150);
+                    Thread.Sleep(20);
                 }
-                Console.ReadLine();
             }
 
-            static void DungeonCave()
+            static void GenerateRandomCreature()
             {
+
 
             }
         }
