@@ -68,7 +68,7 @@ namespace DungeonWar
                 Console.Write("\n\tWhat is your name banshee? : ");
                 banshee.Name = Console.ReadLine();
 
-                Console.Write("\n\tPick you magic");
+                Console.Write("\n\tChoose your magic");
 
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("\n\n\t1: for Fire \n\t2: for Air \n\t3: for Water \n\t4: for Nature \n\t5: for Chaos \n\t");
@@ -152,7 +152,7 @@ namespace DungeonWar
                 Console.Write("\n\tWhat is your name cyborg? : ");
                 cyborg.Name = Console.ReadLine();
 
-                Console.Write("\n\tPick you Class");
+                Console.Write("\n\tChoose your Class");
 
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("\n\n\t1: for Brute \n\t2: for Berserk \n\t3: for Warrior \n\t");
@@ -161,6 +161,8 @@ namespace DungeonWar
                     case "1":
                         Console.Clear();
                         cyborg.Strength = "Brute";
+                        Walking();
+                        DungeonCave();
                         break;
 
                     case "2":
@@ -197,6 +199,8 @@ namespace DungeonWar
                         Console.Clear();
                         Console.WriteLine("\tEntering Dungeon\n\n");
                         Console.ForegroundColor = ConsoleColor.Red;
+                        Walking();
+                        DungeonCave();
                         Console.WriteLine("\tYou sence danger!!\n\n");
                         Console.WriteLine("\tA troll approaches in the shadow\n");
                         Console.Write("\tFight?\n\tInspect?\t\n\trun?\n");
@@ -263,6 +267,40 @@ namespace DungeonWar
                 Console.Write("\t6: Troll");
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("\n\n\tChoose one of the numbers: ");
+            }
+
+            static void Walking()
+            {
+                string head1 = " 0 ";
+                string body1 = "!T!";
+                string legs1 = "/ \\";
+                string legs2 = " | ";
+                bool legsShouldPrint = true;
+                Console.WriteLine(head1);
+                Console.WriteLine(body1);
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Clear();
+                    int offset = i + 3;
+                    Console.WriteLine(head1.PadLeft(offset, ' '));
+                    Console.WriteLine(body1.PadLeft(offset, ' '));
+                    if (legsShouldPrint)
+                    {
+                        Console.WriteLine(legs1.PadLeft(offset, ' '));
+                    }
+                    else
+                    {
+                        Console.WriteLine(legs2.PadLeft(offset, ' '));
+                    }
+                    legsShouldPrint = !legsShouldPrint;
+                    Thread.Sleep(150);
+                }
+                Console.ReadLine();
+            }
+
+            static void DungeonCave()
+            {
+
             }
         }
 
