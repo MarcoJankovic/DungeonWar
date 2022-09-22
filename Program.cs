@@ -359,7 +359,7 @@ namespace DungeonWar
             }
 
 
-            static void GenerateRandomCreature()
+             static void  GenerateRandomCreature()
             {
                 Random random = new Random();
 
@@ -378,22 +378,21 @@ namespace DungeonWar
             {
                 List<Creaturelist.CreatureTroll> CreatureProperties = new List<Creaturelist.CreatureTroll>();
 
-                Creaturelist.CreatureTroll troll1 = new Creaturelist.CreatureTroll(1, 20, 10);                    
-                Creaturelist.CreatureTroll troll2 = new Creaturelist.CreatureTroll(2, 25, 15);
-                Creaturelist.CreatureTroll troll3 = new Creaturelist.CreatureTroll(3, 30, 20);
-                Creaturelist.CreatureTroll troll4 = new Creaturelist.CreatureTroll(4, 35, 25);
+                Creaturelist.CreatureTroll property1 = new Creaturelist.CreatureTroll(1, 20, 10);                    
+                Creaturelist.CreatureTroll property2 = new Creaturelist.CreatureTroll(2, 25, 15);
+                Creaturelist.CreatureTroll property3 = new Creaturelist.CreatureTroll(3, 30, 20);
+                Creaturelist.CreatureTroll property4 = new Creaturelist.CreatureTroll(4, 35, 25);
 
-                CreatureProperties.Add(troll1);
-                CreatureProperties.Add(troll2);
-                CreatureProperties.Add(troll3);
-                CreatureProperties.Add(troll4);
+                CreatureProperties.Add(property1);
+                CreatureProperties.Add(property2);
+                CreatureProperties.Add(property3);
+                CreatureProperties.Add(property4);
 
-                foreach (var creature in CreatureProperties)
-                {
-                    Random newRandom = new Random();
-                    var createLevel = CreatureProperties[newRandom.Next(0,CreatureProperties.Count)];
-                    Console.WriteLine("\tCreature: {0},{1},{2}", createLevel.level, createLevel.health, createLevel.energy);
-                }
+                
+                Random newRandom = new Random();
+                var createLevel = CreatureProperties[newRandom.Next(CreatureProperties.Count)];
+                Console.WriteLine("\tCreature: {0},{1},{2}", createLevel.level, createLevel.health, createLevel.energy);
+                
 
                 Console.ReadLine();
             }
