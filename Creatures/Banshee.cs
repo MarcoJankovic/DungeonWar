@@ -8,6 +8,6 @@ namespace DungeonWar.Creatures
 {
     internal class Banshee : Stats
     {
-
+      
     }
 }

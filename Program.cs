@@ -57,14 +57,39 @@ namespace DungeonWar
             static void Banshee()
             {
                 Console.Clear();
-                Banshee banshee = new Banshee();           
-                Console.Write("\tWhat is your name banshee? : ");
+                Banshee banshee = new Banshee();
+                banshee.Level = 1;
+                banshee.Health = 25;
+                banshee.Mana = 10;
+                string? answer;
+
+                Console.Write("\n\tWhat is your name banshee? : ");
                 banshee.Name = Console.ReadLine();
 
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("\n\tPick you magic");
+
+                Console.Write("\n\n\t1: for Fire or 2: for Air: ");
+                switch (answer = Console.ReadLine().ToLower())
+                {
+                    case "1":
+                        banshee.Magic = "Fire";
+                        break;
+
+                    case "2":
+                        banshee.Magic = "Air";
+                        break;
+
+                    default:
+                        break;
+                }
                 
+                Console.ForegroundColor = ConsoleColor.Red;            
+
                 Console.WriteLine("\n\tWelcome to Dungeon Wars: " + banshee.Name);
-                Console.Write("" + banshee.Level);
+                Console.Write("\n\tCurrent Level is: " + banshee.Level);
+                Console.Write("\n\tCurrent Health is: " + banshee.Health);
+                Console.Write("\n\tCurrent Mana is: " + banshee.Mana);
+                Console.Write("\n\tCurrent Magic is: " + banshee.Magic);
             }
 
             static void Cyborg()
