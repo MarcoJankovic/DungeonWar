@@ -378,16 +378,24 @@ namespace DungeonWar
             {
                 List<Creaturelist.CreatureTroll> CreatureProperties = new List<Creaturelist.CreatureTroll>();
 
-                Creaturelist.CreatureTroll troll1 = new Creaturelist.CreatureTroll(1, 20, 10);
-                //Creaturelist.CreatureTroll troll2 = new Creaturelist.CreatureTroll(2, 25, 15);
-                //Creaturelist.CreatureTroll troll3 = new Creaturelist.CreatureTroll(3, 30, 20);
-                //Creaturelist.CreatureTroll troll4 = new Creaturelist.CreatureTroll(4, 35, 25);
+                Creaturelist.CreatureTroll troll1 = new Creaturelist.CreatureTroll(1, 20, 10);                    
+                Creaturelist.CreatureTroll troll2 = new Creaturelist.CreatureTroll(2, 25, 15);
+                Creaturelist.CreatureTroll troll3 = new Creaturelist.CreatureTroll(3, 30, 20);
+                Creaturelist.CreatureTroll troll4 = new Creaturelist.CreatureTroll(4, 35, 25);
 
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\n\n\tThe creature you are fighting is Currently : \n\tLevel: {troll1.level} \n\tHealth: {troll1.health} \n\tEnergy: {troll1.energy}");
-                Console.WriteLine("\n\tpress 1: to fight \n\tpress 2: to run:");
+                CreatureProperties.Add(troll1);
+                CreatureProperties.Add(troll2);
+                CreatureProperties.Add(troll3);
+                CreatureProperties.Add(troll4);
+
+                foreach (var creature in CreatureProperties)
+                {
+                    Random newRandom = new Random();
+                    var createLevel = CreatureProperties[newRandom.Next(0,CreatureProperties.Count)];
+                    Console.WriteLine("\tCreature: {0},{1},{2}", createLevel.level, createLevel.health, createLevel.energy);
+                }
+
                 Console.ReadLine();
-
             }
         }
     }
