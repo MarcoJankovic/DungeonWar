@@ -369,16 +369,26 @@ namespace DungeonWar
                 string randomCreature = CreatureList[random.Next(0, CreatureList.Count)];
 
                 Console.WriteLine($"\n\tA {randomCreature} approaches from the shadows\n");
+
+
+                // randomCreature.Append(createLevel);  ????
+                // randomCreature.Append(createLevel);  ????
+                // randomCreature.Append(createLevel);  ????
+                // randomCreature.Append(createLevel);  ????
+
+                // Fix tmr //
+
+
             }
 
             static void GenerateCreatureProperies() // Gives the the troll creature random level and stats
             {              
-                List<Creaturelist.CreatureTroll> CreatureProperties = new List<Creaturelist.CreatureTroll>();
+                List<Creaturelist.CreatureStats> CreatureProperties = new List<Creaturelist.CreatureStats>();
 
-                Creaturelist.CreatureTroll property1 = new Creaturelist.CreatureTroll(1, 20, 10);
-                Creaturelist.CreatureTroll property2 = new Creaturelist.CreatureTroll(2, 25, 15);
-                Creaturelist.CreatureTroll property3 = new Creaturelist.CreatureTroll(3, 30, 20);
-                Creaturelist.CreatureTroll property4 = new Creaturelist.CreatureTroll(4, 35, 25);
+                Creaturelist.CreatureStats property1 = new Creaturelist.CreatureStats(1, 20, 10);
+                Creaturelist.CreatureStats property2 = new Creaturelist.CreatureStats(2, 25, 15);
+                Creaturelist.CreatureStats property3 = new Creaturelist.CreatureStats(3, 30, 20);
+                Creaturelist.CreatureStats property4 = new Creaturelist.CreatureStats(4, 35, 25);
              
                 CreatureProperties.Add(property1);
                 CreatureProperties.Add(property2);

@@ -8,12 +8,12 @@ namespace DungeonWar.Creatures
 {
     public class Creaturelist
     {   
-        public class CreatureTroll
+        public class CreatureStats
         {
             private int Level;
             private int Health;
             private int Energy;          
-            public CreatureTroll(int level, int health, int energy)
+            public CreatureStats(int level, int health, int energy)
             {
                 Level = level;
                 Health = health;
