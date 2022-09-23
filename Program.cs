@@ -14,13 +14,12 @@ namespace DungeonWar
         static void Main(string[] args)
         {
             int run;
-
+            
             Menu();
 
             switch (run = Convert.ToInt32(Console.ReadLine()))
 
             {
-
                 case 1:
                     Banshee();
                     break;
@@ -146,12 +145,14 @@ namespace DungeonWar
                                 }
                                 else if (answer == "N" || answer == "n")
                                 {
-                                    Console.WriteLine("You run away!");
+                                    while (true)
+                                        Console.WriteLine("You run away!");
                                 }
 
                                 break;
 
                             case "2":
+                                Console.Clear();
                                 GenerateCreatureProperies();
                                 break;
                         }
@@ -169,10 +170,10 @@ namespace DungeonWar
 
                     default:
                         break;
-                        
+
                 }
-                
-            }          
+
+            }
             /// ----------------------------------------------------------------------------------------------------///
             static void Cyborg()
             {
@@ -228,7 +229,6 @@ namespace DungeonWar
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("\n\n\tPress 1: To enter Dungeon \n\tPress 2: To enter Market \n\tPress 3: To enter Rest-Area\n\t");
 
-
                 switch (answer = Console.ReadLine())
                 {
                     case "1":
@@ -261,6 +261,7 @@ namespace DungeonWar
                                 break;
 
                             case "2":
+                                Console.Clear();
                                 GenerateCreatureProperies();
                                 break;
                         }
@@ -306,9 +307,6 @@ namespace DungeonWar
                 Troll troll = new Troll();
                 Console.Write("\tWhat is your name troll? : ");
                 troll.Name = Console.ReadLine();
-
-                Console.Write("Hello", troll.Name);
-                Console.Write("", troll.Level);
             }
 
             static void Menu()
@@ -358,8 +356,7 @@ namespace DungeonWar
                 }
             }
 
-
-             static void  GenerateRandomCreature()
+            static void GenerateRandomCreature() // Creates random enemy from the list
             {
                 Random random = new Random();
 
@@ -374,27 +371,25 @@ namespace DungeonWar
                 Console.WriteLine($"\n\tA {randomCreature} approaches from the shadows\n");
             }
 
-            static void GenerateCreatureProperies()
-            {
+            static void GenerateCreatureProperies() // Gives the the troll creature random level and stats
+            {              
                 List<Creaturelist.CreatureTroll> CreatureProperties = new List<Creaturelist.CreatureTroll>();
 
-                Creaturelist.CreatureTroll property1 = new Creaturelist.CreatureTroll(1, 20, 10);                    
+                Creaturelist.CreatureTroll property1 = new Creaturelist.CreatureTroll(1, 20, 10);
                 Creaturelist.CreatureTroll property2 = new Creaturelist.CreatureTroll(2, 25, 15);
                 Creaturelist.CreatureTroll property3 = new Creaturelist.CreatureTroll(3, 30, 20);
                 Creaturelist.CreatureTroll property4 = new Creaturelist.CreatureTroll(4, 35, 25);
-
+             
                 CreatureProperties.Add(property1);
                 CreatureProperties.Add(property2);
                 CreatureProperties.Add(property3);
-                CreatureProperties.Add(property4);
+                CreatureProperties.Add(property4);               
 
-                
+
                 Random newRandom = new Random();
                 var createLevel = CreatureProperties[newRandom.Next(CreatureProperties.Count)];
-                Console.WriteLine("\tCreature: {0},{1},{2}", createLevel.level, createLevel.health, createLevel.energy);
-                
-
-                Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\tCreature Stats:\n\n\tLevel: {0} \n\tHealth: {1} \n\tEnergy: {2}", createLevel.level, createLevel.health, createLevel.energy);
             }
         }
     }
