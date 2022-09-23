@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DungeonWar.Creatures
+namespace DungeonWar.Characters
 {
-    internal class Troll : Stats
+    public class Cyborg : Stats
     {
+
     }
 }
